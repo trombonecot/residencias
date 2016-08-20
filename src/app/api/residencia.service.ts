@@ -7,6 +7,14 @@ import {Residencia} from '../classes/residencia/residencia.component';
 @Injectable()
 export class ResidenciaService {
 
+    getResidenciaById(id){
+        for (var res in Residencies){
+            if (Residencies[res].id === id){
+                return Promise.resolve(Residencies[res]);
+            }
+        }
+    }
+
   getResidencies(){
         return Promise.resolve(Residencies);
   }
@@ -20,5 +28,8 @@ export class ResidenciaService {
         }
         return Promise.resolve(result)
     }
+    
+   
+
 
 }

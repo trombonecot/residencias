@@ -33,4 +33,8 @@ export class BuscadorComponent implements OnInit {
     this.getResidencies(this.text);
   }
 
+  gotoResidencia(res:Residencia){
+    this.router.navigate(['/residencia', res.id]);
+  }
+
 }
