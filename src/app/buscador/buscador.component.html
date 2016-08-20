@@ -1,6 +1,14 @@
   
   
   Codi postal: <input #codiPostal (keyup.enter)="text=codiPostal.value;onChangeText()">
+
+  Provincia: <select #provincia
+        (change)="onChange($event.target.value)">
+      <option value="">Todas</option>
+      <option value="Barcelona">Barcelona</option>
+      <option value="Madrid">Madrid</option>
+
+    </select>
   
   <h2>My residencies de {{text}}</h2>
   <ul class="residencies">

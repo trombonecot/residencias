@@ -8,7 +8,15 @@ const routes: RouterConfig = [
     component: BuscadorComponent
   },
   {
-    path: 'residencia/:id',
+    path: 'residencias/codigo-postal/:codi',
+    component: BuscadorComponent
+  },
+  {
+    path: 'residencias/provincia/:provincia',
+    component: BuscadorComponent
+  },
+  {
+    path: 'residencias/:id/:nom',
     component: ResidenciaDetailComponent
   },
 ];

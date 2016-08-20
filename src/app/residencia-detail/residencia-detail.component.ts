@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import {Residencia} from '../classes/residencia/residencia.component';
 
@@ -12,7 +12,7 @@ import { ResidenciaService } from './../api/residencia.service';
   templateUrl: 'residencia-detail.component.html',
   styleUrls: ['residencia-detail.component.css']
 })
-export class ResidenciaDetailComponent implements OnInit {
+export class ResidenciaDetailComponent implements OnInit, OnDestroy {
   residencia: Residencia;
   sub: any;
 
@@ -24,7 +24,7 @@ export class ResidenciaDetailComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       let id = +params['id'];
       this.residenciaService.getResidenciaById(id)
-        .then(residencia => this.residencia = residencia);
+        .then(hero => this.residencia = hero);
     });
   }
 

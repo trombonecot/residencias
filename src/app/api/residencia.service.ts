@@ -8,11 +8,8 @@ import {Residencia} from '../classes/residencia/residencia.component';
 export class ResidenciaService {
 
     getResidenciaById(id){
-        for (var res in Residencies){
-            if (Residencies[res].id === id){
-                return Promise.resolve(Residencies[res]);
-            }
-        }
+        return this.getResidencies()
+                .then(heroes => heroes.find(hero => hero.id === id));
     }
 
   getResidencies(){

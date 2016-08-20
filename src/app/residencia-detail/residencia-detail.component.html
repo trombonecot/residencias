@@ -1,4 +1,7 @@
-<h1>{{residencia.nom}}</h1>
+<div *ngIf="residencia">
+    <h1>{{residencia.nom}}</h1>
 
+    <p>{{residencia.descripcio}}</p>
 
-<button (click)="goBack()">Back</button>
+    <button (click)="goBack()">Back</button>
+</div>
