@@ -1,0 +1,10 @@
+  
+  
+  Codi postal: <input #codiPostal (keyup.enter)="text=codiPostal.value;onChangeText()">
+  
+  <h2>My residencies de {{text}}</h2>
+  <ul class="residencies">
+    <li *ngFor="let res of residencies">
+      <span class="badge">{{res.id}}</span> {{res.nom}}
+    </li>
+  </ul>
