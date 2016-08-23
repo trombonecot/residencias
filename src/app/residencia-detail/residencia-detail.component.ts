@@ -6,6 +6,7 @@ import {Residencia} from '../classes/residencia/residencia.component';
 
 import { ResidenciaService } from './../api/residencia.service';
 
+
 @Component({
   moduleId: module.id,
   selector: 'app-residencia-detail',
