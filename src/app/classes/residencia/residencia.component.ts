@@ -3,6 +3,7 @@ export class Residencia {
   nom:string;
   codiPostal:string;
   descripcio:string;
+  provincia:number;
   
   constructor() { }
 }

@@ -7,7 +7,7 @@ import { BuscadorComponent } from './buscador.component';
 
 describe('Component: Buscador', () => {
   it('should create an instance', () => {
-    let component = new BuscadorComponent(null, null);
+    let component = new BuscadorComponent(null, null, null);
     expect(component).toBeTruthy();
   });
 });

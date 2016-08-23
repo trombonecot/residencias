@@ -15,6 +15,8 @@ export class BuscadorComponent implements OnInit {
   residencies : Residencia[];
   text:string;
   sub:any;
+  codi:string;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -55,7 +57,7 @@ export class BuscadorComponent implements OnInit {
   }
   
   onChangeText(){
-    this.router.navigate(['residencias/codigo-postal', this.text]);
+    this.router.navigate(['residencias/codigo-postal', this.codi]);
     //this.getResidencies(this.text);
   }
 

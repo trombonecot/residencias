@@ -1,6 +1,8 @@
   
   
-  Codi postal: <input #codiPostal (keyup.enter)="text=codiPostal.value;onChangeText()">
+  Nom: <input #nom (keyup.enter)="text=nom.value">
+
+  Codi postal: <input #codiPostal (keyup.enter)="codi=codiPostal.value;onChangeText()">
 
   Provincia: <select #provincia
         (change)="onChange($event.target.value)">
