@@ -1,4 +1,6 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
 import { BuscadorComponent } from './buscador/buscador.component';
 import { ResidenciaDetailComponent } from './residencia-detail/residencia-detail.component';
 
@@ -20,6 +22,8 @@ const routes: RouterConfig = [
     component: ResidenciaDetailComponent
   },
 ];
+
+export const routing = RouterModule.forRoot(routes);
 
 export const appRouterProviders = [
   provideRouter(routes)

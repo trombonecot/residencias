@@ -1,8 +1,8 @@
   
-  
-  Nom: <input #nom (keyup.enter)="text=nom.value">
+  <md-card>
+  Nom: <md-input #nom (keyup.enter)="text=nom.value"></md-input>
 
-  Codi postal: <input #codiPostal (keyup.enter)="codi=codiPostal.value;onChangeText()">
+  Codi postal: <md-input #codiPostal (keyup.enter)="codi=codiPostal.value;onChangeText()"></md-input>
 
   Provincia: <select #provincia
         (change)="onChange($event.target.value)">
@@ -11,11 +11,17 @@
       <option value="Madrid">Madrid</option>
 
     </select>
-  
-  <h2>My residencies de {{text}}</h2>
-  <ul class="residencies">
-    <li *ngFor="let res of residencies"
-        (click)="gotoResidencia(res)">
-      <span class="badge">{{res.id}}</span> {{res.nom}}
-    </li>
-  </ul>
+  </md-card>
+
+  <md-card>
+    <md-list class="residencies">
+      <md-subheader class="md-no-sticky">My residencies de {{text}}</md-subheader>
+
+      <md-list-item class="md-2-line" *ngFor="let res of residencies"
+          (click)="gotoResidencia(res)">
+        <div class="md-list-item-text">
+          <h3>{{res.nom}}</h3>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-card>

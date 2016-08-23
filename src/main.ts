@@ -1,7 +1,10 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { AppComponent, environment } from './app/';
 
-import { appRouterProviders } from './app/app.routes';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+
+import { appRouterProviders, routing } from './app/app.routes';
 
 import {BrowserModule} from '@angular/platform-browser';
 import {enableProdMode} from '@angular/core';
@@ -31,6 +34,8 @@ import {RtlModule} from '@angular2-material/core/rtl/dir';
 
 @NgModule({
   imports: [
+    BrowserModule,
+    
     MdButtonModule,
     MdButtonToggleModule,
     MdCardModule,
@@ -53,9 +58,13 @@ import {RtlModule} from '@angular2-material/core/rtl/dir';
     OverlayModule,
     PortalModule,
     RtlModule,
+    routing
   ],
   declarations: [AppComponent],
   entryComponents: [AppComponent],
+  providers:[
+    appRouterProviders
+  ]
 })
 
 
@@ -71,7 +80,10 @@ if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [
+platformBrowserDynamic().bootstrapModule(MaterialAppModule);
+
+
+/*bootstrap(AppComponent, [
   appRouterProviders
-]);
+]);*/
 
