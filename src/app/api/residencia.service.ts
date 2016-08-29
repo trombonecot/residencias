@@ -18,10 +18,10 @@ export class ResidenciaService {
     constructor(private jsonp: Jsonp) {}
 
     getResidenciaById(id){
-        return null;
-        /*this.getResidencies()
-                .then(heroes => heroes.find(hero => hero.id === id));
-                */
+        return this.jsonp.get(this.residendiesURL + '&id=' + id)
+                .toPromise()
+               .then(response => <Residencia> response.json().data)
+               .catch(function(error){console.log(error)});
     } 
 
     getResidencies(){
