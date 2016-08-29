@@ -5,7 +5,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 
 import { appRouterProviders, routing } from './app/app.routes';
-
+import { JsonpModule} from '@angular/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {enableProdMode} from '@angular/core';
 import {NgModule, ApplicationRef} from '@angular/core';
@@ -35,7 +35,7 @@ import {RtlModule} from '@angular2-material/core/rtl/dir';
 @NgModule({
   imports: [
     BrowserModule,
-    
+    JsonpModule,
     MdButtonModule,
     MdButtonToggleModule,
     MdCardModule,
