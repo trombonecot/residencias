@@ -3,7 +3,7 @@ import { Residencies } from './mocks/residencia.mock';
 
 import {Residencia} from '../classes/residencia/residencia.component';
 
-import { Headers, Http , Jsonp} from '@angular/http';
+import { JSONP_PROVIDERS, Headers, Http , Jsonp} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 export class ResidenciaService {
 
     private headers = new Headers({'Content-Type': 'application/json'});
-    private residendiesURL = 'http://api.buscageriatricos.es/getAll?c=JSONP_CALLBACK';  // URL to web api
+    private residendiesURL = 'http://api.buscageriatricos.es/getAll?callback=JSONP_CALLBACK';  // URL to web api
 
     constructor(private jsonp: Jsonp) {}
 
@@ -24,21 +24,21 @@ export class ResidenciaService {
                 */
     } 
 
-  getResidencies(){
+    getResidencies(){
         return this.jsonp.get(this.residendiesURL)
                 .toPromise()
-               .then(response => <Residencia[]> response.json()[1])
+               .then(response => <Residencia[]> response.json().data)
                .catch(function(error){console.log(error)});
-  }
+    }
 
-  getResidenciesPerCodi(codi){
-        let result = new Array<Residencia>();
-        for (var res in Residencies){
-            if (Residencies[res].codiPostal.indexOf(codi)>-1){
-                result.push(Residencies[res]);
+    getResidenciesPerCodi(codi){
+            let result = new Array<Residencia>();
+            for (var res in Residencies){
+                if (Residencies[res].codiPostal.indexOf(codi)>-1){
+                    result.push(Residencies[res]);
+                }
             }
-        }
-        return Promise.resolve(result)
+            return Promise.resolve(result)
     }
 
     private handleError(error: any): Promise<any> {
