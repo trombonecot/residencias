@@ -3,23 +3,23 @@ exports.Residencies = [
     {
         id: 1,
         nom: 'Residència Sant Josep',
-        codiPostal: '08302'
+        codi_postal: '08302'
     }, {
         id: 2,
         nom: 'Residència Lolailo',
-        codiPostal: '08052'
+        codi_postal: '08052'
     }, {
         id: 3,
         nom: 'Residència El Mercat',
-        codiPostal: '08015'
+        codi_postal: '08015'
     }, {
         id: 4,
         nom: 'Residència Laia',
-        codiPostal: '08302'
+        codi_postal: '08302'
     }, {
         id: 5,
         nom: 'Residència de iaios',
-        codiPostal: '08301'
+        codi_postal: '08301'
     }
 ];
 //# sourceMappingURL=residencia.mock.js.map

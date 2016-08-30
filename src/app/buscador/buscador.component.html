@@ -1,5 +1,5 @@
   
-  <md-card>
+ <!-- <md-card>
   Nom: <md-input #nom (keyup.enter)="text=nom.value"></md-input>
 
   Codi postal: <md-input #codiPostal (keyup.enter)="codi=codiPostal.value;onChangeText()"></md-input>
@@ -12,15 +12,16 @@
 
     </select>
   </md-card>
-
+-->
   <md-card>
     <md-list class="residencies">
-      <md-subheader class="md-no-sticky">My residencies de {{text}}</md-subheader>
+      <md-subheader class="md-no-sticky">Listado de residéncias</md-subheader>
 
       <md-list-item class="md-2-line" *ngFor="let res of residencies"
           (click)="gotoResidencia(res)">
         <div class="md-list-item-text">
-          <h3>{{res.nom}}</h3>
+          <b class="list-name">{{res.nom}}</b><br>
+          <span class="discreet">{{res.direccio}}, {{res.codi_postal}}, {{res.poblacio}}</span>
         </div>
       </md-list-item>
     </md-list>

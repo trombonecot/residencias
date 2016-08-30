@@ -1,9 +1,11 @@
 <md-card>
     <div *ngIf="residencia">
-    <h1>{{residencia.nom}}</h1>
 
-    <p>{{residencia.descripcio}}</p>
+        <h1>{{residencia.nom}}</h1>
 
-    <button md-button (click)="goBack()">Back</button>
+        <span>{{residencia.direccio}}, {{residencia.codi_postal}}, {{residencia.poblacio}}</span>
+
+        <div></div>
+        <button md-button (click)="goBack()">Volver</button>
     </div>
 </md-card>

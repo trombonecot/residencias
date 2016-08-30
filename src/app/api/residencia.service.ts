@@ -13,32 +13,29 @@ import 'rxjs/add/operator/toPromise';
 export class ResidenciaService {
 
     private headers = new Headers({'Content-Type': 'application/json'});
-    private residendiesURL = 'http://api.buscageriatricos.es/getAll?callback=JSONP_CALLBACK';  // URL to web api
+    private residendiesURL = 'http://api.buscageriatricos.es/';  // URL to web api
 
     constructor(private jsonp: Jsonp) {}
 
     getResidenciaById(id){
-        return this.jsonp.get(this.residendiesURL + '&id=' + id)
+        return this.jsonp.get(this.residendiesURL + 'getById?callback=JSONP_CALLBACK&id=' + id)
                 .toPromise()
                .then(response => <Residencia> response.json().data)
                .catch(function(error){console.log(error)});
     } 
 
     getResidencies(){
-        return this.jsonp.get(this.residendiesURL)
+        return this.jsonp.get(this.residendiesURL + 'getAll?callback=JSONP_CALLBACK')
                 .toPromise()
                .then(response => <Residencia[]> response.json().data)
                .catch(function(error){console.log(error)});
     }
 
     getResidenciesPerCodi(codi){
-            let result = new Array<Residencia>();
-            for (var res in Residencies){
-                if (Residencies[res].codiPostal.indexOf(codi)>-1){
-                    result.push(Residencies[res]);
-                }
-            }
-            return Promise.resolve(result)
+        return this.jsonp.get(this.residendiesURL + 'getByCodi?callback=JSONP_CALLBACK&codi=' + codi)
+                .toPromise()
+               .then(response => <Residencia[]> response.json().data)
+               .catch(function(error){console.log(error)});
     }
 
     private handleError(error: any): Promise<any> {
