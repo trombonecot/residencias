@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import {ResidenciaService} from './api/residencia.service';
+import {PoblacioService} from './api/poblacio.service';
+
 
 import {BuscadorComponent} from './buscador/buscador.component';
 
@@ -13,7 +15,8 @@ import {BuscadorComponent} from './buscador/buscador.component';
   styleUrls: ['app.component.css'],
   directives: [ROUTER_DIRECTIVES, BuscadorComponent],
   providers: [
-      ResidenciaService
+      ResidenciaService,
+      PoblacioService
   ],
 })
 export class AppComponent {

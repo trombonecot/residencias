@@ -14,7 +14,7 @@ const routes: RouterConfig = [
     component: BuscadorComponent
   },
   {
-    path: 'residencias/provincia/:provincia',
+    path: 'residencias/poblacion/:poblacion',
     component: BuscadorComponent
   },
   {

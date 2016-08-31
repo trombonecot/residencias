@@ -1,18 +1,21 @@
   
- <!-- <md-card>
-  Nom: <md-input #nom (keyup.enter)="text=nom.value"></md-input>
+ <md-card>
+ <!-- Nom: <md-input #nom (keyup.enter)="text=nom.value"></md-input>
 
   Codi postal: <md-input #codiPostal (keyup.enter)="codi=codiPostal.value;onChangeText()"></md-input>
-
-  Provincia: <select #provincia
-        (change)="onChange($event.target.value)">
-      <option value="">Todas</option>
-      <option value="Barcelona">Barcelona</option>
-      <option value="Madrid">Madrid</option>
-
-    </select>
-  </md-card>
 -->
+    <div class="form-group">
+      <label for="poblacion">Poblacion</label>
+      <select class="form-control" 
+              id="poblacion" 
+              poblacion
+              (change)="onChange($event.target.value)">
+        <option value="">Todas</option>
+        <option *ngFor="#obj of poblacions" [value]="obj.poblacio">{{obj.poblacio}}</option>
+      </select>
+    </div>
+  </md-card>
+
   <md-card>
     <md-list class="residencies">
       <md-subheader class="md-no-sticky">Listado de residéncias</md-subheader>

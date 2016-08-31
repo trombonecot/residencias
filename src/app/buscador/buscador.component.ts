@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 
+import { Component, OnInit } from '@angular/core';
 import {Residencia} from '../classes/residencia/residencia.component';
+import {Poblacio} from '../classes/poblacio/poblacio.component';
 import { Router } from '@angular/router';
 import { ResidenciaService } from './../api/residencia.service';
+import { PoblacioService } from './../api/poblacio.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -16,44 +18,50 @@ export class BuscadorComponent implements OnInit {
   text:string;
   sub:any;
   codi:string;
+  poblacions: Poblacio[];
+  poblacion:string;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private residenciaService: ResidenciaService){}
+    private residenciaService: ResidenciaService,
+    private poblacioService: PoblacioService){}
 
-  getResidencies(codi) {
-    if (codi === undefined){
+  getResidencies(poblacio) {
+    if (poblacio === undefined){
       this.residenciaService.getResidencies().then(residencies => this.residencies = residencies);
     }else{
-      this.residenciaService.getResidenciesPerCodi(codi).then(residencies => this.residencies = residencies);
+      this.residenciaService.getResidenciesPerPoblacio(poblacio).then(residencies => this.residencies = residencies);
     } 
+  }
+
+  getPoblacions(){
+    this.poblacioService.getPoblacions().then(poblacions => this.poblacions = poblacions);
   }
 
   ngOnInit() {
 
+    this.getPoblacions();
+
     this.sub = this.route.params.subscribe(params => {
-      let codiPostal = +params['codi'];
+      let poblacion = params['poblacion'];
+
+      this.poblacion = poblacion;
     
-      if (isNaN(codiPostal)){
+      if (poblacion === undefined){
         this.getResidencies(undefined);
       }else{
-        this.text = codiPostal.toString();
-        this.getResidencies(codiPostal);
+        this.getResidencies(poblacion);
       }
-      
     });
-
-    
-
-    
-
-
-
   }
 
   onChange(valor){
-    this.router.navigate(['residencias/provincia', valor]);
+    if (valor == ""){
+      this.router.navigate(['']);
+    }else{
+      this.router.navigate(['residencias/poblacion', valor]);
+    }
   }
   
   onChangeText(){
