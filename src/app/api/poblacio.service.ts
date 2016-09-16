@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {Poblacio} from '../classes/poblacio/poblacio.component';
 
-import { JSONP_PROVIDERS, Headers, Http , Jsonp} from '@angular/http';
+import {Headers, Http , Jsonp} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 

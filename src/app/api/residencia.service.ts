@@ -3,7 +3,7 @@ import { Residencies } from './mocks/residencia.mock';
 
 import {Residencia} from '../classes/residencia/residencia.component';
 
-import { JSONP_PROVIDERS, Headers, Http , Jsonp} from '@angular/http';
+import { Headers, Http , Jsonp} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 

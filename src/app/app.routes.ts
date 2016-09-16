@@ -1,10 +1,10 @@
-import { provideRouter, RouterConfig }  from '@angular/router';
+
 import { Routes, RouterModule } from '@angular/router';
 
 import { BuscadorComponent } from './buscador/buscador.component';
 import { ResidenciaDetailComponent } from './residencia-detail/residencia-detail.component';
 
-const routes: RouterConfig = [
+const routes: Routes = [
   {
     path: '',
     component: BuscadorComponent
@@ -25,6 +25,6 @@ const routes: RouterConfig = [
 
 export const routing = RouterModule.forRoot(routes);
 
-export const appRouterProviders = [
-  provideRouter(routes)
+export const appRouterProviders: any[] = [
+
 ];
