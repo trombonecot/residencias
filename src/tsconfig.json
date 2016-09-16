@@ -15,7 +15,7 @@
     "target": "es5",
     "inlineSources": true
   },
-
+  "module": "commonjs",
   "files": [
     "main.ts",
     "typings.d.ts"

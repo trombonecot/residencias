@@ -45,6 +45,12 @@ materialComponents.forEach(name => {
   };
 });
 
+packages['ng2-pagination'] = {
+format: 'cjs',
+defaultExtension: 'js',
+main: 'index',
+};
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
  * Everything underneath this line is managed by the CLI.
